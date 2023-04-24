@@ -1,6 +1,26 @@
 package org.launchcode.studio7;
 
-public class CD {
+public class CD extends BaseDisc implements OpticalDisc{
+    public CD() {
+        super(700,500);
+    }
+
+    @Override
+    public void spinDisc() {
+        System.out.println("A CD spins at a rate of " + this.getSpinSpeed() + " rpm");
+    }
+
+    @Override
+    public void storeData(String data) {
+        this.writeData(data);
+
+    }
+
+    @Override
+    public boolean isFull() {
+        if(this.readData().length()>=this.getStorageCapacity()) return true;
+        else return false;
+    }
 
     // TODO: Implement your custom interface.
 
